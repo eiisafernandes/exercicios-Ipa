@@ -67,3 +67,11 @@ Route::get('média', function(Request $request){
     return $média;
 
 });
+
+Route::get('dividir', function(Request $request){
+    $num1 = $request->input('n1');
+    $num2 = $request->input('n2');
+    $resultado = $num2 / $num1;
+    return $resultado;    
+
+});
