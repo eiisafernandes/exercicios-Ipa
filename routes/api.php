@@ -109,3 +109,10 @@ Route::get('salário', function(Request $request){
     return 'Salário Anterior: ' . $salárioinicial . ', Percentual de aumento: ' . $porcentagem . ', Salário Atual: ' . $valorfinal; 
 
 });
+
+Route::get('pontos', function(Request $request){
+    $valordacompra = $request->input('compra');
+    $pontos = $valordacompra / 10.00;
+    return $pontos;
+
+});
