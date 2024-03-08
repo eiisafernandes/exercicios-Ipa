@@ -31,3 +31,12 @@ Route::get('números', function(Request $request){
     return $resultado;
 
 });
+
+Route::get('três/números', function(Request $request){
+    $numero1 = $request->input('primeironumero');
+    $numero2 = $request->input('segundonumero');
+    $numero3 = $request->input('terceironumero');
+    $resultado = $numero1 - $numero2 - $numero3;
+    return $resultado;
+
+});
