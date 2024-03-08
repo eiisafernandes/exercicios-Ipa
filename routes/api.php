@@ -116,3 +116,10 @@ Route::get('pontos', function(Request $request){
     return $pontos;
 
 });
+
+Route::get('comissão', function(Request $request){
+    $valorVendas = $request->input('venda');
+    $valorComissao = ($valorVendas * 5) / 100;
+    return 'O valor da comissão é igual a ' . $valorComissao;
+
+});
