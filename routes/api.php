@@ -123,3 +123,12 @@ Route::get('comissão', function(Request $request){
     return 'O valor da comissão é igual a ' . $valorComissao;
 
 });
+
+Route::get('dias', function(Request $request){
+    $dias = $request->input('dias');
+    $horas = $dias * 24;
+    $minutos = $horas * 60;
+    $segundos = $minutos * 60;
+    return 'Horas: ' . $horas . ', Minutos: ' . $minutos . ', Segundos: ' . $segundos;
+
+});
