@@ -48,3 +48,12 @@ Route::get('divisão', function(Request $request){
     return $resultado;
 
 });
+
+Route::get('multiplicação', function(Request $request){
+    $numero1 = $request->input('number1');
+    $numero2 = $request->input('number2');
+    $resultado = $numero1 * $numero2;
+    return $resultado;
+
+});
+
