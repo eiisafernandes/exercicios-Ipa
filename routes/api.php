@@ -23,3 +23,11 @@ Route::get('cidade', function(Request $request){
     return 'Meu nome é ' . $nome . ' nasci no ano de ' . $ano . ' na cidade de ' . $cidade; 
     
 });
+
+Route::get('números', function(Request $request){
+    $numero1 = $request->input('primeironumero');
+    $numero2 = $request->input('segundonumero');
+    $resultado = $numero1 + $numero2;
+    return $resultado;
+
+});
