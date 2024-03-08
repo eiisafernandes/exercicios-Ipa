@@ -8,3 +8,10 @@ Route::get('usuario', function(Request $request){
     return $nome;
     
 });
+
+Route::get('informacoes/usuario', function(Request $request){
+    $nome = $request->input('nome');
+    $idade = $request->input('idade');
+    return 'Meu nome é ' . $nome . ', tenho ' . $idade . ' anos de idade.';
+
+});
