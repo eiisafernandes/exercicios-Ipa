@@ -57,3 +57,13 @@ Route::get('multiplicação', function(Request $request){
 
 });
 
+Route::get('média', function(Request $request){
+    $numero1 = $request->input('num1');
+    $numero2 = $request->input('num2');
+    $numero3 = $request->input('num3');
+    $numero4 = $request->input('num4');
+    $numero5 = $request->input('num5');    
+    $média = ($numero1 + $numero2 + $numero3 + $numero4 + $numero5)/5;
+    return $média;
+
+});
