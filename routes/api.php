@@ -91,3 +91,12 @@ Route::get('área', function(Request $request){
 
 });
 
+Route::get('desconto', function(Request $request){
+
+    $preçoproduto = $request->input('produto');
+    $descontoproduto = $request->input('desconto');
+    $valordesconto = ($preçoproduto * $descontoproduto) /100;    
+    $valorfinal = $preçoproduto - $valordesconto;
+    return $valorfinal;
+
+});
