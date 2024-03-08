@@ -132,3 +132,11 @@ Route::get('dias', function(Request $request){
     return 'Horas: ' . $horas . ', Minutos: ' . $minutos . ', Segundos: ' . $segundos;
 
 });
+
+Route::get('total', function(Request $request){
+    $preçoProduto = $request->input('preço');
+    $quantidade = $request->input('quantidade');
+    $total = $preçoProduto * $quantidade;
+    return 'O preço total é igual a ' . $total;
+
+});
