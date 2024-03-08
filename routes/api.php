@@ -82,3 +82,12 @@ Route::get('dobro', function(Request $request){
     return 'O dobro de ' . $num1 . ' é igual a: ' . $dobro . '.'; 
 
 });
+
+Route::get('área', function(Request $request){
+    $lado1 = $request->input('base');
+    $lado2 = $request->input('altura');
+    $área = $lado1 * $lado2;
+    return $área;
+
+});
+
