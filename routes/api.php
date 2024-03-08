@@ -75,3 +75,10 @@ Route::get('dividir', function(Request $request){
     return $resultado;    
 
 });
+
+Route::get('dobro', function(Request $request){
+    $num1 = $request->input('n1');
+    $dobro = $num1 * 2;
+    return 'O dobro de ' . $num1 . ' é igual a: ' . $dobro . '.'; 
+
+});
