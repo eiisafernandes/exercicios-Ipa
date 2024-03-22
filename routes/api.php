@@ -233,9 +233,3 @@ Route::get('tres', function(Request $request){
     }
 
 });
-
-Route::get('nao', function(Request $request){
-    $nome = $request->input('nomee');
-    return $nome;
-
-});
