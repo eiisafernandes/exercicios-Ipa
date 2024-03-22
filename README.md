@@ -20,7 +20,7 @@ git clone https://github.com/eiisafernandes/exercicios-Ipa.git
 
 2. Acesse o diretório do projeto :
 ```
-cd exercicios-lpa
+cd exercicios-Ipa
 ```
 
 3. Iniciando o projeto
