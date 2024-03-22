@@ -176,7 +176,7 @@ Route::get('verificar/par', function(Request $request){
 
 });
 
-Route::get('dez', function(Request $request){
+Route::get('exercicio1', function(Request $request){
     $numero = $request->input('numero');
 
     if($numero > 10){
@@ -187,7 +187,7 @@ Route::get('dez', function(Request $request){
 
 });
 
-Route::get('temperatura', function(Request $request){
+Route::get('exercicio7', function(Request $request){
     $temp = $request->input('temperatura');
 
     if($temp > 30) {
@@ -198,7 +198,7 @@ Route::get('temperatura', function(Request $request){
 
 });
 
-Route::get('positivo', function(Request $request){
+Route::get('exercicio2', function(Request $request){
     $numero = $request->input('num');
 
     if($numero > 0){
@@ -206,12 +206,12 @@ Route::get('positivo', function(Request $request){
     } else if($numero < 0) {
         return "O número " . $numero .  " é negativo";
     } else {
-        return "O número " . $numero .  " é igual a zero";
+        return "O número é igual a zero";
     }
 
 });
 
-Route::get('numeros', function(Request $request){
+Route::get('exercicio5', function(Request $request){
     $num1 = $request->input('num1');
     $num2 = $request->input('num2');
 
@@ -233,3 +233,185 @@ Route::get('tres', function(Request $request){
     }
 
 });
+
+    Route::get('exercicio3', function(Request $request){
+        $numero = $request->input('idade');
+
+        if($numero >= 18)
+            return "Você é maior de idade";
+        
+    });
+
+Route::get('exercicio4', function(Request $request){
+    $numero = $request->input('numero');
+
+    if($numero % 2 == 0) {
+        return "O numero é par";
+    } else {
+        return "O número é ímpar";
+    }
+
+});
+
+Route::get('exercicio6', function(Request $request){
+    $numero = $request->input('num');
+
+    if($numero % 9 == 0){
+        return "O número é divisível por nove.";
+    } else {
+        return "O número não é divisível por nove";
+    }
+
+});
+
+Route::get('exercicio8', function(Request $request){
+    $numero = $request->input('numero');
+
+    if($numero % 7 == 0){
+        return "O número é múltiplo de 7";
+    } else {
+        return "O número não é múltiplo de 7";
+    }
+
+});
+
+Route::get('exercicio9', function(Request $request){
+    $idade = $request->input('idade');
+
+    if($idade < 12){
+        return "Você é uma criança";
+    } else {
+        return "Você não é uma criança";
+    }
+
+});
+
+Route::get('exercicio10', function(Request $request){
+    $numero = $request->input('numero');
+
+    if($numero > 0){
+        if($numero % 2 != 0){
+        return "O número é positivo e ímpar";
+        } 
+    }   
+     
+});
+
+Route::get('exercicio11', function(Request $request){
+    $numero = $request->input('numero');
+
+    if($numero < 100) {
+        return "O número é menor que 100";
+    } else if($numero > 100) {
+        return "O número é maior que 100";
+    } else {
+        return "O número é igual a 100";
+    }
+
+});
+
+Route::get('exercicio12', function(Request $request){
+    $numero = $request->input('numero');
+
+    if($numero % 6 == 0){
+        return "O número é divisível por 6";
+    } else {
+        return "O número não é divisível por 6";
+    }
+
+});
+
+Route::get('exercicio13', function(Request $request){
+    $nome = $request->input('nome');
+
+    if($nome = "Alice"){
+        return "Olá, Alice!";
+    }
+
+});
+ 
+Route::get('exercicio14', function(Request $request){
+    $idade = $request->input('idade');
+    $carteira = $request->input('carteira');
+
+    if($idade >= 18) {
+        if($carteira = "Sim"){
+            return "Você pode dirigir";
+        }
+    } 
+    if($idade < 18){
+        if($carteira = "Não"){
+            return "Você não pode dirigir";
+        }
+    }
+
+});
+
+Route::get('exercicio16', function(Request $request){
+    $num1 = $request->input('num1');
+    $num2 = $request->input('num2');
+
+    if ($num1 < $num2){
+        if ($num1 != $num2){
+            return "O " . $num1 . " é menor que " . $num2;
+        }
+    } 
+    if ($num2 < $num1){
+        return "O " . $num2 . " é menor que " . $num1;
+    }
+
+}); 
+
+Route::get('exercicio17', function(Request $request){
+    $nome = $request->input('nome');
+    $idade = $request->input('idade');
+
+    if($idade >= 18){
+        return "Você é maior de idade, " . $nome;
+    }
+
+});
+
+Route::get('exercicio18', function(Request $request){
+    $numero1 = $request->input('num1');
+    $numero2 = $request->input('num2');
+        
+    if($numero1 == 0){
+        return "Não é possível efetuar a divisão pois o primeiro número é zero";
+    }
+    else if ($numero2 == 0){
+        return "Não é possível efetuar a divisão pois o segundo número é zero";
+    } else {
+        return $numero1 / $numero2;
+    }
+    
+});
+
+Route::get('exercicio19', function(Request $request){
+    $num1 = $request->input('num1');
+    $num2 = $request->input('num2');
+    $resultado = $num1 * $num2;
+
+    if ($resultado > 100){
+        return "O número é maior que 100";
+    } else {
+        return "O número é menor que 100";
+    }
+
+});
+
+Route::get('exercicio20', function(Request $request){
+    $numero1 = $request->input('num1');
+    $numero2 = $request->input('num2');
+    $soma = $numero1 + $numero2;
+    
+    if($soma % 2 == 0){
+        return $numero1 * $numero2;
+    } else {
+        return $numero1 / $numero2;
+    }
+
+});
+
+
+
