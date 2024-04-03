@@ -176,6 +176,17 @@ Route::get('verificar/par', function(Request $request){
 
 });
 
+Route::get('tres', function(Request $request){
+    $numero = $request->input('num1');
+
+    if($numero % 3 == 0) {
+        return "O número é divisível por três";
+    } else {
+        return "O número não é divisível por três";
+    }
+
+});
+
 Route::get('exercicio1', function(Request $request){
     $numero = $request->input('numero');
 
@@ -184,17 +195,6 @@ Route::get('exercicio1', function(Request $request){
     } else {
         return "Número menor que dez";
     } 
-
-});
-
-Route::get('exercicio7', function(Request $request){
-    $temp = $request->input('temperatura');
-
-    if($temp > 30) {
-        return "Está quente!";
-    } else {
-        return "Não está quente.";
-    }
 
 });
 
@@ -211,34 +211,15 @@ Route::get('exercicio2', function(Request $request){
 
 });
 
-Route::get('exercicio5', function(Request $request){
-    $num1 = $request->input('num1');
-    $num2 = $request->input('num2');
-
-    if($num1 > $num2){
-        return "O maior número é " . $num1;
-    } else {
-        return " O maior número é " . $num2;
-    }
-
-});
-
-Route::get('tres', function(Request $request){
-    $numero = $request->input('num1');
-
-    if($numero % 3 == 0) {
-        return "O número é divisível por três";
-    } else {
-        return "O número não é divisível por três";
-    }
-
-});
-
     Route::get('exercicio3', function(Request $request){
         $numero = $request->input('idade');
 
-        if($numero >= 18)
+        if($numero >= 18){
             return "Você é maior de idade";
+        } else {
+            return "Você é menor de idade";
+        }
+           
         
     });
 
@@ -253,6 +234,19 @@ Route::get('exercicio4', function(Request $request){
 
 });
 
+
+Route::get('exercicio5', function(Request $request){
+    $num1 = $request->input('num1');
+    $num2 = $request->input('num2');
+
+    if($num1 > $num2){
+        return "O maior número é " . $num1;
+    } else {
+        return " O maior número é " . $num2;
+    }
+
+});
+
 Route::get('exercicio6', function(Request $request){
     $numero = $request->input('num');
 
@@ -260,6 +254,17 @@ Route::get('exercicio6', function(Request $request){
         return "O número é divisível por nove.";
     } else {
         return "O número não é divisível por nove";
+    }
+
+});
+
+Route::get('exercicio7', function(Request $request){
+    $temp = $request->input('temperatura');
+
+    if($temp > 30) {
+        return "Está quente!";
+    } else {
+        return "Não está quente.";
     }
 
 });
@@ -293,7 +298,25 @@ Route::get('exercicio10', function(Request $request){
         if($numero % 2 != 0){
         return "O número é positivo e ímpar";
         } 
-    }   
+    } 
+    if ($numero > 0){
+        if($numero % 2 == 0){
+            return "O número é positivo e par";
+        }
+    }  
+    if ($numero < 0){
+        if($numero % 2 != 0){
+            return "O número é negativo e ímpar";
+        }
+    }
+    if ($numero < 0){
+        if($numero % 2 == 0){
+            return "O número é negativo e par";
+        }
+    }
+    if ($numero == 0){
+        return "O número é positivo e par";
+    }
      
 });
 
@@ -324,10 +347,12 @@ Route::get('exercicio12', function(Request $request){
 Route::get('exercicio13', function(Request $request){
     $nome = $request->input('nome');
 
-    if($nome = "Alice"){
+    if($nome == "Alice"){
         return "Olá, Alice!";
-    }
-
+    } else {
+        return "Olá, " . $nome;
+    } 
+        
 });
  
 Route::get('exercicio14', function(Request $request){
@@ -335,14 +360,13 @@ Route::get('exercicio14', function(Request $request){
     $carteira = $request->input('carteira');
 
     if($idade >= 18) {
-        if($carteira = "Sim"){
+        if($carteira == "Sim"){
             return "Você pode dirigir";
-        }
-    } 
-    if($idade < 18){
-        if($carteira = "Não"){
+        } else {
             return "Você não pode dirigir";
-        }
+        } 
+    } else {
+        return "Você não pode dirigir";
     }
 
 });
@@ -357,7 +381,11 @@ Route::get('exercicio16', function(Request $request){
         }
     } 
     if ($num2 < $num1){
-        return "O " . $num2 . " é menor que " . $num1;
+        if($num2 != $num1){
+            return "O " . $num2 . " é menor que " . $num1;
+        }
+    } else {
+        return "Os números são iguais";
     }
 
 }); 
@@ -368,6 +396,8 @@ Route::get('exercicio17', function(Request $request){
 
     if($idade >= 18){
         return "Você é maior de idade, " . $nome;
+    } else {
+        return "Você é menor de idade, " . $nome;
     }
 
 });
@@ -413,5 +443,127 @@ Route::get('exercicio20', function(Request $request){
 
 });
 
+Route::get('licao1', function(Request $request){
+    $nota1 = $request->input('nota1');
+    $nota2 = $request->input('nota2');
+    $nota3 = $request->input('nota3');
+    $media = ($nota1 + $nota2 + $nota3) / 3;
+
+    if($media >= 7){
+        return "Você foi aprovado, com média " . $media;
+    } else {
+        return "Você foi reprovado, com média " . $media;
+    }
+
+});
+
+Route::get('licao2', function(Request $request){
+    $salario = $request->input('salario');
+
+    if($salario <= 1900){
+        return "Isento de imposto";
+    }
+    if($salario >= 1901){
+        if($salario <= 2800){
+            return "O valor do imposto de renda é R$" . ($salario * 7) / 100;
+        }
+    }
+    if($salario >= 2801){
+        if($salario <= 3700){
+            return "O valor do imposto de renda é R$" . ($salario * 15) / 100;
+        }
+    }    
+    if($salario > 3700){
+        return "O valor do imposto de renda é R$" . ($salario * 22) / 100;
+    }  
+     
+});
+
+Route::get('licao3', function(Request $request){;
+    $ano = $request->input('ano');
+
+    if($ano % 4 == 0){
+        return "O ano de " . $ano . " é bissexto!";
+    } else {
+        return "O ano de " . $ano . " não é bissexto.";
+    }
+
+});
+
+Route::get('licao4', function(Request $request){
+    $produto = $request->input('preço');
+    $desconto = ($produto * 15) / 100;
+
+    if($produto < 1000){
+        return "O preço do produto é de R$" . $produto; 
+    } 
+    if($produto >= 1000) {
+        return "O preço do produto é de R$" . ($produto - $desconto);
+    }
+
+});
+
+Route::get('licao5', function(Request $request){
+    $peso = $request->input('peso');
+    $altura = $request->input('altura');
+    $IMC = $peso / ($altura * $altura);
+
+    if($IMC < 18.5){
+        return "Você está classificado(a) como abaixo do peso, o valor do IMC é " . $IMC;
+    } 
+    if($IMC >= 18.5){
+        if($IMC <= 24.9){
+            return "Você está classificado(a) como peso normal, o valor do IMC é " . $IMC;
+        }
+    }
+    if($IMC >= 25){
+        if($IMC <= 29.9){
+            return "Você está classificado(a) como sobrepeso, o valor do IMC é " . $IMC;
+        }
+    }
+    if($IMC >= 30){
+        if($IMC <= 34.9){
+            return "Você está classificado(a) como obesidade grau I, o valor do IMC é " . $IMC;
+        }
+    }
+    if($IMC >= 35){
+        if($IMC <= 39.9){
+            return "Você está classificado(a) como obesidade grau II, o valor do IMC é " . $IMC;
+        }
+    }
+    if($IMC >= 40){
+        if($IMC <= 49.9){
+            return "Você está classificado(a) como obesidade grau III, o valor do IMC é " . $IMC;
+        }
+    }
+
+});
+
+Route::get('licao6', function(Request $request){
+    $salario = $request->input('salario');
+    $cargo = $request->input('cargo');
+    $operario = ($salario * 5) / 100;
+    $tecnico = ($salario * 10) / 100;
+    $analista = ($salario * 15) / 100;
+    $gerente = ($salario * 20) / 100;
+
+
+    if($cargo == "1"){
+        return "Com um cargo de operário, o aumento salarial é de R$ " . ($salario + $operario);
+    }
+    if($cargo == "2"){
+        return "Com um cargo de tecnico, o aumento salarial é de R$ " . ($salario + $tecnico);
+    } 
+    if($cargo == "3"){
+        return "Com um cargo de analista, o aumento salarial é de R$ " . ($salario + $analista);
+    }
+    if($cargo == "4"){
+        return "Com um cargo de gerente, o aumento salarial é de R$ " . ($salario + $gerente);
+    } else {
+        return "Opção inválida.";
+    }
+    
+
+});
 
 
