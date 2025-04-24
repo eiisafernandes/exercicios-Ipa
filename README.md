@@ -42,7 +42,7 @@ OBS:
 git config --global user.email isaafernandes2018@gmail.com
 ```
 ```
-git config –-global user.name eiisafernandes
+git config --global user.name eiisafernandes
 ```
 
 
